@@ -171,6 +171,7 @@ func (r *Request) Body() ([]byte, error) {
 	ei.ReqBodyStart(builder)
 	bodyInfo := ei.ReqBodyEnd(builder)
 	v, err := r.askExtraInfo(builder, ei.InfoReqBody, bodyInfo)
+	util.PutBuilder(builder)
 	if err != nil {
 		return nil, err
 	}
